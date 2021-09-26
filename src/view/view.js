@@ -1,0 +1,44 @@
+import { elements } from "./base";
+
+function renderCards(arr){
+   let str=''
+    arr.filter((item,idx)=>idx<=5).forEach(item =>{
+        str+=`<div class="movie-card">
+        <div class="movie-image"></div>
+        <h4 class="movie-title">${item.title}</h4>
+        <h6>Sep 12, 2013</h6>
+        <div class="movie-rating">83%</div>
+      </div>`
+    } )
+    elements.cardContainer.innerHTML=str
+}
+
+function showSpinner(){
+    elements.spinner.classList.remove('hide')
+}
+function clearSpinner(){
+    elements.spinner.classList.add('hide')
+}
+let value=''
+function takeInput(e){
+    value=e.target.value
+    console.log(value);
+}
+
+function submitValue(e){
+    e.preventDefault()
+    return value
+}
+function clearFields(){
+    value=''
+    elements.input.value=''
+}
+
+export{
+    renderCards,
+    showSpinner,
+    clearSpinner,
+    takeInput,
+    submitValue,
+    clearFields
+}
